@@ -23,9 +23,10 @@ jobs:
           pytest
 
   codecoverage:
-    runs-on: ubuntu-latest # choose the OS for running the action
+    runs-on: ${{ matrix.os }} # choose the OS for running the action
     strategy:
       matrix: 
+        os: ['ubuntu-latest', 'windows-latest']
         python: ['3.7', '3.8', '3.9']
     env:
       PYTHON: ${{ matrix.python }}
